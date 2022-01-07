@@ -1,7 +1,10 @@
 package com.montealegreluis.servicebuses;
 
 import com.google.common.base.CaseFormat;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class TextConverter {
   public static String camelCaseToKebabCase(String text) {
     return CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, text);

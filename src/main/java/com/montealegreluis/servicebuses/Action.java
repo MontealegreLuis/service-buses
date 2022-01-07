@@ -1,7 +1,20 @@
 package com.montealegreluis.servicebuses;
 
 import com.montealegreluis.assertions.Assert;
+import lombok.EqualsAndHashCode;
 
+/**
+ * An action can be either a Command or a Query.
+ *
+ * <p>Actions are used to extract information from the Command or Query executed by any of the
+ * buses. Examples of use are:
+ *
+ * <ul>
+ *   <li>Logging
+ *   <li>Error messages
+ *   <li>API response bodies
+ */
+@EqualsAndHashCode
 public final class Action {
   private final String name;
 
