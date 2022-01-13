@@ -7,7 +7,6 @@ plugins {
 }
 
 group 'com.montealegreluis'
-version '1.0-SNAPSHOT'
 
 apply from: rootProject.file('install-git-hooks.gradle')
 
@@ -17,13 +16,13 @@ repositories {
         url = uri("https://maven.pkg.github.com/montealegreluis/assert")
         credentials {
             username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
         }
     }
 }
 
 dependencies {
-    implementation 'com.montealegreluis:assert:1.1-SNAPSHOT'
+    implementation 'com.montealegreluis:assert:1.1.0'
     implementation 'com.google.guava:guava:31.0.1-jre'
     implementation 'org.reflections:reflections:0.9.11'
 
