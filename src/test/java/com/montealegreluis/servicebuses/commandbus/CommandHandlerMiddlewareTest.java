@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
-import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandlerFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,7 @@ final class CommandHandlerMiddlewareTest {
   void it_locates_and_executes_a_command_handler() {
     var command = new FakeCommand();
     var handler = new FakeCommandHandler();
-    factory.setHandler(handler);
+    factory.add(handler.getClass(), handler);
     var next = new StubCommandHandler();
 
     middleware.execute(command, next);
@@ -32,11 +31,11 @@ final class CommandHandlerMiddlewareTest {
 
   @BeforeEach
   void let() {
-    factory = new FakeCommandHandlerFactory();
+    factory = new InMemoryCommandHandlerFactory();
     var locator = new CommandHandlersLocator("com.montealegreluis.servicebuses.fakes.commandbus");
     middleware = new CommandHandlerMiddleware(locator, factory);
   }
 
   private CommandHandlerMiddleware middleware;
-  private FakeCommandHandlerFactory factory;
+  private InMemoryCommandHandlerFactory factory;
 }

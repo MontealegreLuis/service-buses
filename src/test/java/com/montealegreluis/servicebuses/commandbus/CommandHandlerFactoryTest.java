@@ -24,9 +24,9 @@ abstract class CommandHandlerFactoryTest {
     assertNotNull(commandHandler);
   }
 
-  protected abstract Class<? extends CommandHandler> knownCommandName();
+  protected abstract Class<? extends CommandHandler<? extends Command>> knownCommandName();
 
-  protected abstract Class<? extends CommandHandler> unknownCommandName();
+  protected abstract Class<? extends CommandHandler<? extends Command>> unknownCommandName();
 
   public abstract CommandHandlerFactory factory();
 }
