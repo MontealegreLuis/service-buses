@@ -1,6 +1,9 @@
 # Service buses
 
 [![CI workflow](https://github.com/montealegreluis/service-buses/actions/workflows/ci.yml/badge.svg)](https://github.com/montealegreluis/service-buses/actions/workflows/ci.yml)
+[![Release workflow](https://github.com/montealegreluis/service-buses/actions/workflows/release.yml/badge.svg)](https://github.com/montealegreluis/services-buses/actions/workflows/release.yml)
+[![semantic-release: conventional-commits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
 
 This Maven package provides buses for commands and queries as defined by CQRS (Command-Query Responsibility Segregation)
 

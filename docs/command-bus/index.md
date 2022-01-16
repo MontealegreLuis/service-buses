@@ -11,7 +11,7 @@ The following sections explain what you need to know to use and customize a comm
 - [Creating a command](#creating-a-command)
   - [Locating Commands](#locating-commands)
   - [Instantiating Commands](#instantiating-commands)
-  - [Naming convention](#instantiating-commands)
+  - [Naming convention](#naming-convention)
     - [Command handlers](#command-handlers)
     - [Commands](#commands)
 - [Creating a command bus](#creating-a-command-bus)
@@ -80,7 +80,7 @@ You're also free to provide your own implementation for locating handlers by imp
 
 This library uses the suffix `Input` for both **commands and queries**.
 
-All commands have method `action()` that can provide useful information to be added to exception error messages or log entries for instance.
+All commands have a method `action()` that provides useful information that can be added to exception error messages or to log entries.
 
 ```java
 public final class Action {
@@ -108,7 +108,9 @@ The default implementation of `Command` assumes its name is suffixed with `Input
 ```java
 public interface Command extends Input {
   default Action action() {
-    return Action.withoutSuffix(this.getClass().getSimpleName(), "Input");
+    return Action.withoutSuffix(
+      this.getClass().getSimpleName(),
+      "Input");
   }
 }
 ```
@@ -147,9 +149,8 @@ bus.dispatch(command);
 
 ## Middleware
 
-Middleware are a way to **add behavior**, like writing to a log every time you execute a command.
+Middleware are a way to **add behavior** to commands.
 When you execute a command, it is passed through every Middleware.
-
 Middleware are executed in sequence; the order is configured when you set up the `CommandBus` and can’t be changed later.
 
 Middleware can control when the next middleware starts.
