@@ -34,7 +34,8 @@ final class CommandHandlerMiddlewareTest {
   @BeforeEach
   void let() {
     factory = new InMemoryCommandHandlerFactory();
-    var locator = new CommandHandlersLocator("com.montealegreluis.servicebuses.fakes.commandbus");
+    var locator =
+        new ReflectionsCommandHandlerLocator("com.montealegreluis.servicebuses.fakes.commandbus");
     middleware = new CommandHandlerMiddleware(locator, factory);
   }
 

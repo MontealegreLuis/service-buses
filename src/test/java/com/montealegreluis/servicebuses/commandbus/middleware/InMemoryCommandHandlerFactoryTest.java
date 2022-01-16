@@ -4,6 +4,7 @@ import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
 import com.montealegreluis.servicebuses.commandbus.StubCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
+import com.montealegreluis.servicebuses.fakes.commandbus.middleware.CommandHandlerFactoryTest;
 
 final class InMemoryCommandHandlerFactoryTest extends CommandHandlerFactoryTest {
   @Override

@@ -3,10 +3,10 @@ package com.montealegreluis.servicebuses.commandbus.middleware;
 import com.montealegreluis.servicebuses.commandbus.*;
 
 public final class CommandHandlerMiddleware implements CommandMiddleware<Command> {
-  private final CommandHandlersLocator locator;
+  private final CommandHandlerLocator locator;
   private final CommandHandlerFactory factory;
 
-  public CommandHandlerMiddleware(CommandHandlersLocator locator, CommandHandlerFactory factory) {
+  public CommandHandlerMiddleware(CommandHandlerLocator locator, CommandHandlerFactory factory) {
     this.locator = locator;
     this.factory = factory;
   }

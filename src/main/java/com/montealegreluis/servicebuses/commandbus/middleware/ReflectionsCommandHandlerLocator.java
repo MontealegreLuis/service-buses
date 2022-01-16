@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 import org.reflections.Reflections;
 
-public final class CommandHandlersLocator {
+public final class ReflectionsCommandHandlerLocator implements CommandHandlerLocator {
   private final Map<Class<? extends Command>, Class<? extends CommandHandler<? extends Command>>>
       commandHandlers;
 
-  public CommandHandlersLocator(String packageName) {
+  public ReflectionsCommandHandlerLocator(String packageName) {
     commandHandlers = mapHandlers(packageName);
   }
 
@@ -46,6 +46,7 @@ public final class CommandHandlersLocator {
     return handlers;
   }
 
+  @Override
   public Class<? extends CommandHandler<? extends Command>> search(
       Class<? extends Command> commandClass) {
     var commandHandlerClass = commandHandlers.get(commandClass);
