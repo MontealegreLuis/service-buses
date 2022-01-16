@@ -1,5 +1,7 @@
-package com.montealegreluis.servicebuses.commandbus;
+package com.montealegreluis.servicebuses.commandbus.middleware;
 
+import com.montealegreluis.servicebuses.commandbus.Command;
+import com.montealegreluis.servicebuses.commandbus.CommandHandler;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -14,6 +16,7 @@ public final class InMemoryCommandHandlerFactory implements CommandHandlerFactor
     handlers.put(commandClass, handler);
   }
 
+  /** @throws CannotCreateCommandHandler If command handler cannot be created */
   @Override
   public CommandHandler commandFromName(Class<? extends CommandHandler> commandClass) {
     CommandHandler<? extends Command> handler = handlers.get(commandClass);

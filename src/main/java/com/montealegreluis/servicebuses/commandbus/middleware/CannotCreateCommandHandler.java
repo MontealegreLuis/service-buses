@@ -1,4 +1,6 @@
-package com.montealegreluis.servicebuses.commandbus;
+package com.montealegreluis.servicebuses.commandbus.middleware;
+
+import com.montealegreluis.servicebuses.commandbus.CommandHandler;
 
 public final class CannotCreateCommandHandler extends RuntimeException {
   public static CannotCreateCommandHandler forCommand(

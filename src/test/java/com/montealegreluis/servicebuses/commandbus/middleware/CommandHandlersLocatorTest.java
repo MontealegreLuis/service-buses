@@ -1,7 +1,8 @@
-package com.montealegreluis.servicebuses.commandbus;
+package com.montealegreluis.servicebuses.commandbus.middleware;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.montealegreluis.servicebuses.commandbus.UnknownCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;

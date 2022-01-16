@@ -1,10 +1,12 @@
-package com.montealegreluis.servicebuses.commandbus;
+package com.montealegreluis.servicebuses.commandbus.middleware;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.montealegreluis.servicebuses.commandbus.Command;
+import com.montealegreluis.servicebuses.commandbus.CommandHandler;
 import org.junit.jupiter.api.Test;
 
-abstract class CommandHandlerFactoryTest {
+public abstract class CommandHandlerFactoryTest {
   @Test
   void it_fails_to_create_an_unknown_command_handler() {
     var factory = factory();

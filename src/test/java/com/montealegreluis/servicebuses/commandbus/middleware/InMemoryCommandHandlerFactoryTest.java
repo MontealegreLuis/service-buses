@@ -1,5 +1,8 @@
-package com.montealegreluis.servicebuses.commandbus;
+package com.montealegreluis.servicebuses.commandbus.middleware;
 
+import com.montealegreluis.servicebuses.commandbus.Command;
+import com.montealegreluis.servicebuses.commandbus.CommandHandler;
+import com.montealegreluis.servicebuses.commandbus.StubCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
 
 final class InMemoryCommandHandlerFactoryTest extends CommandHandlerFactoryTest {
