@@ -2,7 +2,7 @@ package com.montealegreluis.servicebuses.commandbus.middleware;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.montealegreluis.servicebuses.commandbus.StubCommandHandler;
+import com.montealegreluis.servicebuses.commandbus.SpyCommandHandler;
 import com.montealegreluis.servicebuses.commandbus.UnknownCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
@@ -16,7 +16,7 @@ final class CommandHandlerMiddlewareTest {
     var command = new FakeCommand();
     var handler = new FakeCommandHandler();
     factory.add(handler.getClass(), handler);
-    var next = new StubCommandHandler();
+    var next = new SpyCommandHandler();
 
     middleware.execute(command, next);
 
@@ -26,7 +26,7 @@ final class CommandHandlerMiddlewareTest {
   @Test
   void it_fails_when_no_handler_is_registered_for_a_command() {
     var command = new CommandWithoutHandler();
-    var handler = new StubCommandHandler();
+    var handler = new SpyCommandHandler();
 
     assertThrows(UnknownCommandHandler.class, () -> middleware.execute(command, handler));
   }

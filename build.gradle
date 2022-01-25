@@ -1,10 +1,10 @@
 plugins {
     id 'java-library'
-    id 'com.github.sherter.google-java-format' version '0.9'
     id 'java-test-fixtures'
     id 'jacoco'
-    id 'info.solidsoft.pitest' version '1.7.0'
     id 'maven-publish'
+    id 'com.github.sherter.google-java-format' version '0.9'
+    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group 'com.montealegreluis'
@@ -15,6 +15,13 @@ repositories {
     mavenCentral()
     maven {
         url = uri("https://maven.pkg.github.com/montealegreluis/assert")
+        credentials {
+            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
+        }
+    }
+    maven {
+        url = uri("https://maven.pkg.github.com/montealegreluis/activity-feed")
         credentials {
             username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
             password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
@@ -44,6 +51,7 @@ dependencies {
     implementation 'com.montealegreluis:assert:1.1.0'
     implementation 'com.google.guava:guava:31.0.1-jre'
     implementation 'org.reflections:reflections:0.10.2'
+    api 'com.montealegreluis:activity-feed:3.1.1'
 
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
@@ -52,6 +60,9 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testImplementation testFixtures('com.montealegreluis:activity-feed:3.1.1')
+    testImplementation 'org.mockito:mockito-core:4.2.0'
+    testImplementation 'org.mockito:mockito-inline:4.2.0'
     testFixturesImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
