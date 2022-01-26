@@ -2,10 +2,10 @@ package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
+import com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler.CommandHandlerLocatorTest;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
-import com.montealegreluis.servicebuses.fakes.commandbus.middleware.CommandHandlerLocatorTest;
 
 final class ReflectionsCommandHandlerLocatorTest extends CommandHandlerLocatorTest {
   @Override

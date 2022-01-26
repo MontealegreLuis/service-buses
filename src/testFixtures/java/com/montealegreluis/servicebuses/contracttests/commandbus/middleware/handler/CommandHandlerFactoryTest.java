@@ -1,4 +1,4 @@
-package com.montealegreluis.servicebuses.fakes.commandbus.middleware;
+package com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler;
 
 import static org.junit.jupiter.api.Assertions.*;
 

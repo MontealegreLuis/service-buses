@@ -2,9 +2,9 @@ package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
+import com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler.CommandHandlerFactoryTest;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.SpyCommandHandler;
-import com.montealegreluis.servicebuses.fakes.commandbus.middleware.CommandHandlerFactoryTest;
 
 final class InMemoryCommandHandlerFactoryTest extends CommandHandlerFactoryTest {
   @Override
