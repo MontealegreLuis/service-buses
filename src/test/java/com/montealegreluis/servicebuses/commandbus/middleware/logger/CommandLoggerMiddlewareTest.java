@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import com.montealegreluis.activityfeed.ActivityFeed;
-import com.montealegreluis.servicebuses.commandbus.SpyCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
+import com.montealegreluis.servicebuses.fakes.commandbus.SpyCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.middleware.logger.FixedOffsetInstantClock;
 import java.time.*;
 import org.junit.jupiter.api.BeforeEach;

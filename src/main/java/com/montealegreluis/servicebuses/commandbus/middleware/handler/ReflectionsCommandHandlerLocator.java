@@ -1,8 +1,7 @@
-package com.montealegreluis.servicebuses.commandbus.middleware;
+package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.commandbus.UnknownCommandHandler;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;

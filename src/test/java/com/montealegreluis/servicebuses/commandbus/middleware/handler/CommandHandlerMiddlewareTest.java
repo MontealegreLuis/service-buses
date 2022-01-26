@@ -1,12 +1,11 @@
-package com.montealegreluis.servicebuses.commandbus.middleware;
+package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.montealegreluis.servicebuses.commandbus.SpyCommandHandler;
-import com.montealegreluis.servicebuses.commandbus.UnknownCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
+import com.montealegreluis.servicebuses.fakes.commandbus.SpyCommandHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

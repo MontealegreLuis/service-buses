@@ -122,7 +122,7 @@ public interface ApplicationCommand extends Command {
   default Action action() {
     return Action.withoutSuffix(
         this.getClass().getSimpleName(), 
-        "Command"); // no suffix "" or any other suffix
+        "Command"); // or no suffix "", or any other suffix
   }
 }
 ```

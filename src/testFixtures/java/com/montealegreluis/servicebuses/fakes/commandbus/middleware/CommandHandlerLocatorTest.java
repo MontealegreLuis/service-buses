@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.commandbus.UnknownCommandHandler;
-import com.montealegreluis.servicebuses.commandbus.middleware.CommandHandlerLocator;
+import com.montealegreluis.servicebuses.commandbus.middleware.handler.CommandHandlerLocator;
+import com.montealegreluis.servicebuses.commandbus.middleware.handler.UnknownCommandHandler;
 import org.junit.jupiter.api.Test;
 
 public abstract class CommandHandlerLocatorTest {

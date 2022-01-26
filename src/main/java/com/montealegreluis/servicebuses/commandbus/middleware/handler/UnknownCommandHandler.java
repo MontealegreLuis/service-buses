@@ -1,4 +1,6 @@
-package com.montealegreluis.servicebuses.commandbus;
+package com.montealegreluis.servicebuses.commandbus.middleware.handler;
+
+import com.montealegreluis.servicebuses.commandbus.Command;
 
 public final class UnknownCommandHandler extends RuntimeException {
   public UnknownCommandHandler(String message) {
