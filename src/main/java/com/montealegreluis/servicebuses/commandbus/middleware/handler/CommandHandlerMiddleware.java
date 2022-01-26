@@ -1,8 +1,9 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import com.montealegreluis.servicebuses.commandbus.*;
+import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 
-public final class CommandHandlerMiddleware implements CommandMiddleware<Command> {
+public final class CommandHandlerMiddleware implements CommandMiddleware {
   private final CommandHandlerLocator locator;
   private final CommandHandlerFactory factory;
 

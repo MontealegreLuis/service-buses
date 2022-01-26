@@ -1,14 +1,15 @@
 package com.montealegreluis.servicebuses.commandbus;
 
 import com.montealegreluis.assertions.Assert;
+import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 import java.util.ArrayList;
 import java.util.List;
 
 public final class MiddlewareCommandBus implements CommandBus, CommandHandler<Command> {
-  public final List<CommandMiddleware<Command>> middleware;
-  private List<CommandMiddleware<Command>> runtimeMiddleware;
+  public final List<CommandMiddleware> middleware;
+  private List<CommandMiddleware> runtimeMiddleware;
 
-  public MiddlewareCommandBus(List<CommandMiddleware<Command>> middleware) {
+  public MiddlewareCommandBus(List<CommandMiddleware> middleware) {
     Assert.notEmpty(middleware, "Cannot dispatch command on an empty command bus");
     this.middleware = middleware;
   }
@@ -23,7 +24,7 @@ public final class MiddlewareCommandBus implements CommandBus, CommandHandler<Co
   public void execute(Command command) {
     if (runtimeMiddleware.isEmpty()) return;
 
-    CommandMiddleware<Command> middleware = runtimeMiddleware.remove(0);
+    CommandMiddleware middleware = runtimeMiddleware.remove(0);
     middleware.execute(command, this);
   }
 }

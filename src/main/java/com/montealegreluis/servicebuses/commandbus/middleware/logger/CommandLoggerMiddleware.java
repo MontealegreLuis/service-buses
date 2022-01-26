@@ -5,12 +5,12 @@ import static com.montealegreluis.servicebuses.commandbus.middleware.logger.Acti
 import com.montealegreluis.activityfeed.ActivityFeed;
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.commandbus.CommandMiddleware;
+import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
 
-public final class CommandLoggerMiddleware implements CommandMiddleware<Command> {
+public final class CommandLoggerMiddleware implements CommandMiddleware {
   private final ActivityFeed feed;
   private final Clock clock;
 

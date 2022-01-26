@@ -2,9 +2,9 @@ package com.montealegreluis.servicebuses.fakes.commandbus;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.commandbus.CommandMiddleware;
+import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 
-public final class FakeCommandMiddleware implements CommandMiddleware<Command> {
+public final class FakeCommandMiddleware implements CommandMiddleware {
   private boolean executed = false;
 
   @Override
