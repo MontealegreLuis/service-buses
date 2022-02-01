@@ -11,7 +11,7 @@ public final class MiddlewareCommandBus implements CommandBus, CommandHandler<Co
   private List<CommandMiddleware> runtimeMiddleware;
 
   public MiddlewareCommandBus(List<CommandMiddleware> middleware) {
-    Assert.notEmpty(middleware, "Cannot dispatch command on an empty command bus");
+    Assert.notEmpty(middleware, "Cannot dispatch commands on an empty command bus");
     this.middleware = middleware;
   }
 
