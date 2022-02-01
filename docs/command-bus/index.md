@@ -17,7 +17,6 @@ The following sections explain what you need to know to use and customize a comm
 - [Creating a command bus](#creating-a-command-bus)
 - [Executing a command](#executing-a-command)
 - [Middleware](#middleware)
-  - [Middleware example](#middleware-example)
 
 ## Creating a command
 
@@ -159,76 +158,9 @@ This allows you to control if your custom behavior will come **before** or **aft
 Middleware is a very useful concept for lots of things.
 You could write middleware for:
 
-- Database transactions
-- Error handling
+- [Logging](https://github.com/MontealegreLuis/service-buses/blob/main/docs/command-bus/logging.md)
+- [Error handling](https://github.com/MontealegreLuis/service-buses/blob/main/docs/command-bus/error-handler.md)
+- [Database transactions](https://github.com/MontealegreLuis/service-buses-spring-boot#transaction-middleware)
 - Queuing
-- Logging
 - Validation
 - Permissions
-
-### Logging Middleware
-
-This package provides a middleware to log how much time commands take. 
-See the code excerpt below that illustrates how middleware work.
-
-```java
-public final class CommandLoggerMiddleware implements CommandMiddleware<Command> {
-
-  // ...
-
-  @Override
-  public void execute(Command command, CommandHandler<Command> next) {
-    Instant start = clock.instant();
-    next.execute(command);
-    Instant end = clock.instant();
-
-    feed.record(commandCompleted(command.action(), Duration.between(start, end)));
-  }
-}
-```
-
-The next step is to add the logger middleware to the bus
-
-```java
-public final class Application {
-  public static void main(String[] args) {
-    // ...
-    var logger = LoggerFactory.getLogger(Application.class);
-    var feed = new ActivityFeed(logger);
-    var clock = Clock.systemUTC();
-    var loggerMiddleware = new LoggerMiddleware(feed, clock);
-
-    var bus = new MiddlewareCommandBus(List.of(
-      loggerMiddleware,
-      handlerMiddleware));
-  }
-}
-```
-
-#### Querying your logs
-
-The logging events generate by the middleware explained in the previous section look as follows.
-
-```json
-{
-  "identifier": "command",
-  "context": {
-    "command": "update-subscription",
-    "durationInMilliseconds": 500
-  }
-}
-```
-
-With the information provided by the logging event described above, you'll be able to: 
-
-- Query your logs per command
-- Look for slow commands
-
-Below is the query to look for the command `update-subscription` in AWS Cloudwatch.
-
-```sql
-fields @timestamp, message, `context.durationInMilliseconds`
-| filter `context.command` = "update-subscription"
-| sort @timestamp desc
-| limit 50
-```
