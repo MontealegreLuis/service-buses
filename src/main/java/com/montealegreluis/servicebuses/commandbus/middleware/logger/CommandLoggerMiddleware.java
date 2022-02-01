@@ -1,6 +1,6 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.logger;
 
-import static com.montealegreluis.servicebuses.commandbus.middleware.logger.ActionActivity.commandCompleted;
+import static com.montealegreluis.servicebuses.ActionActivity.commandCompleted;
 
 import com.montealegreluis.activityfeed.ActivityFeed;
 import com.montealegreluis.servicebuses.ActionException;

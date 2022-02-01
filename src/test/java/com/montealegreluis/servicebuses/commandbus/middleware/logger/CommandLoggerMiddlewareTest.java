@@ -1,6 +1,6 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.logger;
 
-import static com.montealegreluis.servicebuses.commandbus.middleware.logger.ActionActivity.commandCompleted;
+import static com.montealegreluis.servicebuses.ActionActivity.commandCompleted;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
@@ -15,16 +15,12 @@ import org.junit.jupiter.api.Test;
 
 final class CommandLoggerMiddlewareTest {
   @Test
-  void it_logs_the_duration_of_a_command() {
+  void it_logs_the_duration_of_a_command() throws ActionException {
     var command = new FakeCommand();
     var next = new SpyCommandHandler();
     var activity = commandCompleted(command.action(), duration);
 
-    try {
-      middleware.execute(command, next);
-    } catch (ActionException e) {
-      e.printStackTrace();
-    }
+    middleware.execute(command, next);
 
     verify(feed, times(1)).record(activity);
     assertTrue(next.wasCalled());
