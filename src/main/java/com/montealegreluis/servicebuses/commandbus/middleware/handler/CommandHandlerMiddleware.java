@@ -1,5 +1,6 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.commandbus.*;
 import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 
@@ -14,7 +15,7 @@ public final class CommandHandlerMiddleware implements CommandMiddleware {
 
   @Override
   @SuppressWarnings("unchecked")
-  public void execute(Command command, CommandHandler<Command> next) {
+  public void execute(Command command, CommandHandler<Command> next) throws ActionException {
     var handler = factory.commandFromName(locator.search(command.getClass()));
     handler.execute(command);
   }

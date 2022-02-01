@@ -3,6 +3,7 @@ package com.montealegreluis.servicebuses.commandbus.middleware.logger;
 import static com.montealegreluis.servicebuses.commandbus.middleware.logger.ActionActivity.commandCompleted;
 
 import com.montealegreluis.activityfeed.ActivityFeed;
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
 import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
@@ -20,7 +21,7 @@ public final class CommandLoggerMiddleware implements CommandMiddleware {
   }
 
   @Override
-  public void execute(Command command, CommandHandler<Command> next) {
+  public void execute(Command command, CommandHandler<Command> next) throws ActionException {
     Instant start = clock.instant();
     next.execute(command);
     Instant end = clock.instant();

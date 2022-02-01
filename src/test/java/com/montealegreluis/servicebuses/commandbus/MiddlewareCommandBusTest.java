@@ -2,6 +2,7 @@ package com.montealegreluis.servicebuses.commandbus;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.middleware.FakeCommandMiddleware;
 import java.util.Collections;
@@ -16,7 +17,7 @@ final class MiddlewareCommandBusTest {
   }
 
   @Test
-  void it_dispatches_a_single_middleware() {
+  void it_dispatches_a_single_middleware() throws ActionException {
     var middleware = new FakeCommandMiddleware();
     var bus = new MiddlewareCommandBus(Collections.singletonList(middleware));
 
@@ -26,7 +27,7 @@ final class MiddlewareCommandBusTest {
   }
 
   @Test
-  void it_dispatches_multiple_middleware() {
+  void it_dispatches_multiple_middleware() throws ActionException {
     var middlewareA = new FakeCommandMiddleware();
     var middlewareB = new FakeCommandMiddleware();
     var middlewareC = new FakeCommandMiddleware();

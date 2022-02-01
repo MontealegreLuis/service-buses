@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import com.montealegreluis.activityfeed.ActivityFeed;
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.SpyCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.middleware.logger.FixedOffsetInstantClock;
@@ -19,7 +20,11 @@ final class CommandLoggerMiddlewareTest {
     var next = new SpyCommandHandler();
     var activity = commandCompleted(command.action(), duration);
 
-    middleware.execute(command, next);
+    try {
+      middleware.execute(command, next);
+    } catch (ActionException e) {
+      e.printStackTrace();
+    }
 
     verify(feed, times(1)).record(activity);
     assertTrue(next.wasCalled());

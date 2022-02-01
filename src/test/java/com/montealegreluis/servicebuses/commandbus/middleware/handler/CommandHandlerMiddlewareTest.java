@@ -2,6 +2,7 @@ package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
@@ -17,7 +18,11 @@ final class CommandHandlerMiddlewareTest {
     factory.add(handler.getClass(), handler);
     var next = new SpyCommandHandler();
 
-    middleware.execute(command, next);
+    try {
+      middleware.execute(command, next);
+    } catch (ActionException e) {
+      e.printStackTrace();
+    }
 
     assertEquals(command, handler.executedCommand(), "Command was not executed");
   }
@@ -27,7 +32,15 @@ final class CommandHandlerMiddlewareTest {
     var command = new CommandWithoutHandler();
     var handler = new SpyCommandHandler();
 
-    assertThrows(UnknownCommandHandler.class, () -> middleware.execute(command, handler));
+    assertThrows(
+        UnknownCommandHandler.class,
+        () -> {
+          try {
+            middleware.execute(command, handler);
+          } catch (ActionException e) {
+            e.printStackTrace();
+          }
+        });
   }
 
   @BeforeEach

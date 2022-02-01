@@ -1,6 +1,7 @@
 package com.montealegreluis.servicebuses.commandbus;
 
 import com.montealegreluis.assertions.Assert;
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,13 @@ public final class MiddlewareCommandBus implements CommandBus, CommandHandler<Co
   }
 
   @Override
-  public void dispatch(Command command) {
+  public void dispatch(Command command) throws ActionException {
     runtimeMiddleware = new ArrayList<>(middleware);
     execute(command);
   }
 
   @Override
-  public void execute(Command command) {
+  public void execute(Command command) throws ActionException {
     if (runtimeMiddleware.isEmpty()) return;
 
     CommandMiddleware middleware = runtimeMiddleware.remove(0);
