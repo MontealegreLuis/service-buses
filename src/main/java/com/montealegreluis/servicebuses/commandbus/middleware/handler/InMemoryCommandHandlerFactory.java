@@ -17,7 +17,8 @@ public final class InMemoryCommandHandlerFactory implements CommandHandlerFactor
   }
 
   @Override
-  public CommandHandler commandFromName(Class<? extends CommandHandler> commandClass)
+  public CommandHandler<? extends Command> commandFromName(
+      Class<? extends CommandHandler<? extends Command>> commandClass)
       throws CannotCreateCommandHandler {
     CommandHandler<? extends Command> handler = handlers.get(commandClass);
     if (handler == null) {

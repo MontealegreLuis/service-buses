@@ -20,7 +20,7 @@ public abstract class QueryHandlerFactoryTest {
   }
 
   @Test
-  void it_creates_a_command_handler() throws CannotCreateQueryHandler {
+  void it_creates_a_query_handler() throws CannotCreateQueryHandler {
     var factory = factory();
     var knownCommandName = knownQueryName();
 

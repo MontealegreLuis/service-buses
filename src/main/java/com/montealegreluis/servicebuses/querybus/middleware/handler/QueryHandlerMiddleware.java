@@ -18,7 +18,8 @@ public final class QueryHandlerMiddleware implements QueryMiddleware {
   @Override
   @SuppressWarnings("unchecked")
   public Response execute(Query query, QueryHandler<Query, Response> next) throws ActionException {
-    var handler = factory.queryFromName(locator.search(query.getClass()));
+    var handler =
+        (QueryHandler<Query, Response>) factory.queryFromName(locator.search(query.getClass()));
     return handler.execute(query);
   }
 }

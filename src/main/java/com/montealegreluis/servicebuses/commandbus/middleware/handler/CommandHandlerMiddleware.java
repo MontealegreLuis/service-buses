@@ -16,7 +16,8 @@ public final class CommandHandlerMiddleware implements CommandMiddleware {
   @Override
   @SuppressWarnings("unchecked")
   public void execute(Command command, CommandHandler<Command> next) throws ActionException {
-    var handler = factory.commandFromName(locator.search(command.getClass()));
+    var handler =
+        (CommandHandler<Command>) factory.commandFromName(locator.search(command.getClass()));
     handler.execute(command);
   }
 }

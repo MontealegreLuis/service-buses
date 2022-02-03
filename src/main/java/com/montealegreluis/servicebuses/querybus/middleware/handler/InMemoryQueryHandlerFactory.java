@@ -19,7 +19,8 @@ public final class InMemoryQueryHandlerFactory implements QueryHandlerFactory {
   }
 
   @Override
-  public QueryHandler queryFromName(Class<? extends QueryHandler> queryClass)
+  public QueryHandler<? extends Query, ? extends Response> queryFromName(
+      Class<? extends QueryHandler<? extends Query, ? extends Response>> queryClass)
       throws CannotCreateQueryHandler {
     QueryHandler<? extends Query, ? extends Response> handler = handlers.get(queryClass);
     if (handler == null) {
