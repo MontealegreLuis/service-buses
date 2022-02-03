@@ -1,8 +1,9 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.commandbus.Command;
 
-public final class UnknownCommandHandler extends RuntimeException {
+public final class UnknownCommandHandler extends ActionException {
   public UnknownCommandHandler(String message) {
     super(message);
   }

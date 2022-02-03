@@ -1,8 +1,9 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
+import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
 
-public final class CannotCreateCommandHandler extends RuntimeException {
+public final class CannotCreateCommandHandler extends ActionException {
   public static CannotCreateCommandHandler forCommand(
       Class<? extends CommandHandler> commandClass, Throwable cause) {
     return new CannotCreateCommandHandler(

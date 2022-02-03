@@ -19,7 +19,7 @@ public abstract class CommandHandlerFactoryTest {
   }
 
   @Test
-  void it_creates_a_command_handler() {
+  void it_creates_a_command_handler() throws CannotCreateCommandHandler {
     var factory = factory();
     var knownCommandName = knownCommandName();
 

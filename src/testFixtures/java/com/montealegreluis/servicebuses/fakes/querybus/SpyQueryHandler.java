@@ -5,16 +5,16 @@ import com.montealegreluis.servicebuses.querybus.Query;
 import com.montealegreluis.servicebuses.querybus.QueryHandler;
 import com.montealegreluis.servicebuses.querybus.Response;
 
-public final class FakeQueryHandler implements QueryHandler<FakeQuery, Response> {
-  private Query query;
+public final class SpyQueryHandler implements QueryHandler<Query, Response> {
+  private boolean called = false;
 
   @Override
-  public Response execute(FakeQuery query) throws ActionException {
-    this.query = query;
+  public Response execute(Query Query) throws ActionException {
+    called = true;
     return new FakeResponse();
   }
 
-  public Query executedQuery() {
-    return query;
+  public boolean wasCalled() {
+    return called;
   }
 }

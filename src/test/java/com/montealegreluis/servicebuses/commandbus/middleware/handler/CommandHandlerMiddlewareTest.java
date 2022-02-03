@@ -12,17 +12,13 @@ import org.junit.jupiter.api.Test;
 
 final class CommandHandlerMiddlewareTest {
   @Test
-  void it_locates_and_executes_a_command_handler() {
+  void it_locates_and_executes_a_command_handler() throws ActionException {
     var command = new FakeCommand();
     var handler = new FakeCommandHandler();
     factory.add(handler.getClass(), handler);
     var next = new SpyCommandHandler();
 
-    try {
-      middleware.execute(command, next);
-    } catch (ActionException e) {
-      e.printStackTrace();
-    }
+    middleware.execute(command, next);
 
     assertEquals(command, handler.executedCommand(), "Command was not executed");
   }
@@ -32,15 +28,7 @@ final class CommandHandlerMiddlewareTest {
     var command = new CommandWithoutHandler();
     var handler = new SpyCommandHandler();
 
-    assertThrows(
-        UnknownCommandHandler.class,
-        () -> {
-          try {
-            middleware.execute(command, handler);
-          } catch (ActionException e) {
-            e.printStackTrace();
-          }
-        });
+    assertThrows(UnknownCommandHandler.class, () -> middleware.execute(command, handler));
   }
 
   @BeforeEach

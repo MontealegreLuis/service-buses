@@ -19,7 +19,7 @@ public abstract class CommandHandlerLocatorTest {
   }
 
   @Test
-  void it_finds_the_command_handler_of_a_given_command() {
+  void it_finds_the_command_handler_of_a_given_command() throws UnknownCommandHandler {
     var locator = locator();
     var commandName = commandWithHandler();
     var handlerName = commandHandler();

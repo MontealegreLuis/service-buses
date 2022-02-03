@@ -16,9 +16,9 @@ public final class InMemoryCommandHandlerFactory implements CommandHandlerFactor
     handlers.put(commandClass, handler);
   }
 
-  /** @throws CannotCreateCommandHandler If command handler cannot be created */
   @Override
-  public CommandHandler commandFromName(Class<? extends CommandHandler> commandClass) {
+  public CommandHandler commandFromName(Class<? extends CommandHandler> commandClass)
+      throws CannotCreateCommandHandler {
     CommandHandler<? extends Command> handler = handlers.get(commandClass);
     if (handler == null) {
       throw CannotCreateCommandHandler.forCommand(commandClass, null);

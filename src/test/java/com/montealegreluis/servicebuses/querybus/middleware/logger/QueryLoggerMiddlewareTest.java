@@ -8,8 +8,8 @@ import com.montealegreluis.activityfeed.ActivityFeed;
 import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.fakes.commandbus.middleware.logger.FixedOffsetInstantClock;
 import com.montealegreluis.servicebuses.fakes.querybus.FakeQuery;
-import com.montealegreluis.servicebuses.fakes.querybus.FakeQueryHandler;
 import com.montealegreluis.servicebuses.fakes.querybus.FakeResponse;
+import com.montealegreluis.servicebuses.fakes.querybus.SpyQueryHandler;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -20,7 +20,7 @@ final class QueryLoggerMiddlewareTest {
   @Test
   void it_logs_the_duration_of_a_query() throws ActionException {
     var query = new FakeQuery();
-    var next = new FakeQueryHandler();
+    var next = new SpyQueryHandler();
     var activity = queryCompleted(query.action(), duration);
 
     var response = middleware.execute(query, next);
