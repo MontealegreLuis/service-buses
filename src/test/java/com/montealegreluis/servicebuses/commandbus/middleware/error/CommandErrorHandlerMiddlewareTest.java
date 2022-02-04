@@ -61,7 +61,7 @@ final class CommandErrorHandlerMiddlewareTest {
   }
 
   @Test
-  void it_does_nothing_if_no_exception_is_thrown() {
+  void it_does_nothing_if_no_exception_is_thrown() throws ActionException {
     var input = new FakeCommand();
     var next =
         new CommandHandler<>() {
@@ -69,11 +69,7 @@ final class CommandErrorHandlerMiddlewareTest {
           public void execute(Command command) {}
         };
 
-    try {
-      middleware.execute(input, next);
-    } catch (ActionException e) {
-      e.printStackTrace();
-    }
+    middleware.execute(input, next);
 
     verify(feed, never()).record(any());
   }
