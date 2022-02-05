@@ -6,7 +6,7 @@ import com.montealegreluis.servicebuses.querybus.QueryHandler;
 import com.montealegreluis.servicebuses.querybus.Response;
 import com.montealegreluis.servicebuses.querybus.middleware.QueryMiddleware;
 
-public class FakeCallNextQueryMiddleware implements QueryMiddleware {
+public final class FakeCallNextQueryMiddleware implements QueryMiddleware {
   private boolean executed = false;
 
   @Override

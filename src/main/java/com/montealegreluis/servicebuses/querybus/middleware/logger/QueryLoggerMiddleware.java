@@ -12,7 +12,7 @@ import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
 
-public class QueryLoggerMiddleware implements QueryMiddleware {
+public final class QueryLoggerMiddleware implements QueryMiddleware {
   private final ActivityFeed feed;
   private final Clock clock;
 
