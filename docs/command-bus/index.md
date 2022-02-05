@@ -31,7 +31,7 @@ public final class SubscribeToNewsLetterAction
   implements CommandHandler<SubscribeToNewsLetterInput> {
     @Override
     public void execute(SubscribeToNewsLetterInput input) {
-        // Logic to subscribe to a newsletter
+      // Logic to subscribe to a newsletter
     }
 }
 ```
@@ -70,7 +70,7 @@ In a Spring Boot application you would use the Bean factory instead.
 
 This library uses the suffix `Action` for both **command and query handlers**.
 
-However, you're free to use no suffix, or use `CommandHandler` or `QueryHandler`, or any other variation.
+However, you're free to use no suffix, or use `CommandHandler`, or any other variation.
 Since services are located via reflection, class names do not matter in that regard.
 
 You're also free to provide your own implementation for locating handlers by implementing the `CommandHandlerLocator` interface.
