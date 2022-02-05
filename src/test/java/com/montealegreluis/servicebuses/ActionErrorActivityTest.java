@@ -1,22 +1,21 @@
-package com.montealegreluis.servicebuses.commandbus.middleware.error;
+package com.montealegreluis.servicebuses;
 
 import static com.montealegreluis.activityfeed.ContextAssertions.assertContextHasKey;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.montealegreluis.activityfeed.ContextSerializer;
-import com.montealegreluis.servicebuses.DomainException;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import java.util.Map;
 import java.util.logging.Level;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-final class ErrorHandlerActivityTest {
+final class ActionErrorActivityTest {
   @Test
   void it_creates_a_domain_exception_activity() {
     var activity =
-        ErrorHandlerActivity.domainException(
+        ActionErrorActivity.domainException(
             new FakeCommand(), new DomainException("Action cannot be completed") {}, serializer);
 
     assertEquals("Cannot fake command. Action cannot be completed", activity.message());
@@ -30,7 +29,7 @@ final class ErrorHandlerActivityTest {
   @Test
   void it_creates_an_infrastructure_exception_activity() {
     var activity =
-        ErrorHandlerActivity.commandFailure(
+        ActionErrorActivity.commandFailure(
             new FakeCommand(), new RuntimeException("Action cannot be completed") {}, serializer);
 
     assertEquals("Cannot fake command. Action cannot be completed", activity.message());

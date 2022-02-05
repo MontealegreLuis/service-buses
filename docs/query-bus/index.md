@@ -27,7 +27,7 @@ public final class SearchProductsInput implements Query {
   // department, price range, etc.
 }
 
-public final class SearchProductsResult implements Page {
+public final class SearchProductsResult implements Response {
   // Response returned by the query:
   // matching products, page number, total count, etc.
 }
@@ -164,6 +164,6 @@ Middleware is a very useful concept for lots of things.
 You could write middleware for:
 
 - [Logging](https://github.com/MontealegreLuis/service-buses/blob/main/docs/query-bus/logging.md)
-- Error handling
+- [Error handling](https://github.com/MontealegreLuis/service-buses/blob/main/docs/query-bus/error-handler.md)
 - Validation
 - Permissions

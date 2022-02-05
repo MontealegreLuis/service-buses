@@ -62,7 +62,7 @@ factory.add(
   new SubscribeToNewsLetterAction());
 ```
 
-In a Spring Boot application you would use the Bean factory instead.
+In a Spring Boot application you would use `ApplicationContextCommandHandlerFactory` instead.
 
 ### Naming convention
 

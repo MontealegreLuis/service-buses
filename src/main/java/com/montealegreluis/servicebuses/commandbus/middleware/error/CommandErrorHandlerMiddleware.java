@@ -1,7 +1,7 @@
 package com.montealegreluis.servicebuses.commandbus.middleware.error;
 
-import static com.montealegreluis.servicebuses.commandbus.middleware.error.ErrorHandlerActivity.commandFailure;
-import static com.montealegreluis.servicebuses.commandbus.middleware.error.ErrorHandlerActivity.domainException;
+import static com.montealegreluis.servicebuses.ActionErrorActivity.commandFailure;
+import static com.montealegreluis.servicebuses.ActionErrorActivity.domainException;
 
 import com.montealegreluis.activityfeed.ActivityFeed;
 import com.montealegreluis.activityfeed.ContextSerializer;
