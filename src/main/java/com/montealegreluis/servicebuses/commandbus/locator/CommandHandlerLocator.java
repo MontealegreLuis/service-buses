@@ -1,4 +1,4 @@
-package com.montealegreluis.servicebuses.commandbus.middleware.handler;
+package com.montealegreluis.servicebuses.commandbus.locator;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;

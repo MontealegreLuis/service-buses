@@ -1,8 +1,8 @@
-package com.montealegreluis.servicebuses.commandbus.middleware.handler;
+package com.montealegreluis.servicebuses.commandbus.factory;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler.CommandHandlerFactoryTest;
+import com.montealegreluis.servicebuses.contracttests.commandbus.factory.CommandHandlerFactoryTest;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.SpyCommandHandler;
 

@@ -1,11 +1,11 @@
-package com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler;
+package com.montealegreluis.servicebuses.contracttests.commandbus.factory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.commandbus.middleware.handler.CannotCreateCommandHandler;
-import com.montealegreluis.servicebuses.commandbus.middleware.handler.CommandHandlerFactory;
+import com.montealegreluis.servicebuses.commandbus.factory.CannotCreateCommandHandler;
+import com.montealegreluis.servicebuses.commandbus.factory.CommandHandlerFactory;
 import org.junit.jupiter.api.Test;
 
 public abstract class CommandHandlerFactoryTest {

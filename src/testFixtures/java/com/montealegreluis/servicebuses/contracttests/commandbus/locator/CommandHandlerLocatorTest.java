@@ -1,12 +1,12 @@
-package com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler;
+package com.montealegreluis.servicebuses.contracttests.commandbus.locator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.commandbus.middleware.handler.CommandHandlerLocator;
-import com.montealegreluis.servicebuses.commandbus.middleware.handler.UnknownCommandHandler;
+import com.montealegreluis.servicebuses.commandbus.locator.CommandHandlerLocator;
+import com.montealegreluis.servicebuses.commandbus.locator.UnknownCommandHandler;
 import org.junit.jupiter.api.Test;
 
 public abstract class CommandHandlerLocatorTest {

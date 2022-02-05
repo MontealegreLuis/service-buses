@@ -2,6 +2,8 @@ package com.montealegreluis.servicebuses.commandbus.middleware.handler;
 
 import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.commandbus.*;
+import com.montealegreluis.servicebuses.commandbus.factory.CommandHandlerFactory;
+import com.montealegreluis.servicebuses.commandbus.locator.CommandHandlerLocator;
 import com.montealegreluis.servicebuses.commandbus.middleware.CommandMiddleware;
 
 public final class CommandHandlerMiddleware implements CommandMiddleware {

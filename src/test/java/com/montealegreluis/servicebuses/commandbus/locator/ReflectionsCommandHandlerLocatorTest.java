@@ -1,8 +1,8 @@
-package com.montealegreluis.servicebuses.commandbus.middleware.handler;
+package com.montealegreluis.servicebuses.commandbus.locator;
 
 import com.montealegreluis.servicebuses.commandbus.Command;
 import com.montealegreluis.servicebuses.commandbus.CommandHandler;
-import com.montealegreluis.servicebuses.contracttests.commandbus.middleware.handler.CommandHandlerLocatorTest;
+import com.montealegreluis.servicebuses.contracttests.commandbus.locator.CommandHandlerLocatorTest;
 import com.montealegreluis.servicebuses.fakes.commandbus.CommandWithoutHandler;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommand;
 import com.montealegreluis.servicebuses.fakes.commandbus.FakeCommandHandler;
