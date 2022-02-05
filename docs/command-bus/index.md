@@ -133,8 +133,7 @@ public final class Application {
   public static void main(String[] args) {
     var factory = new InMemoryCommandHandlerFactory();
     var locator = new ReflectionsCommandHandlerLocator("commands.package");
-    var handlerMiddleware = new CommandHandlerMiddleware(locator, factory);
-    var bus = new MiddlewareCommandBus(List.of(handlerMiddleware));
+    var bus = new CommandBusDispatcher(locator, factory);
   }
 }
 ```
@@ -154,6 +153,21 @@ Middleware are executed in sequence; the order is configured when you set up the
 
 Middleware can control when the next middleware starts.
 This allows you to control if your custom behavior will come **before** or **after** command execution, or if you’ll **suppress** the command from being executed at all.
+
+This package provides a middleware command bus.
+The minimum setup is shown below. 
+At a minimum we need to add a `CommandHandlerMiddleware` to locate, create and execute a command handler.
+
+```java
+public final class Application {
+  public static void main(String[] args) {
+    var factory = new InMemoryCommandHandlerFactory();
+    var locator = new ReflectionsCommandHandlerLocator("commands.package");
+    var handlerMiddleware = new CommandHandlerMiddleware(locator, factory);
+    var bus = new MiddlewareCommandBus(List.of(handlerMiddleware));
+  }
+}
+```
 
 Middleware is a very useful concept for lots of things.
 You could write middleware for:

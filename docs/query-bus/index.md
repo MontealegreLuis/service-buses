@@ -16,10 +16,11 @@ The following sections explain what you need to know to use and customize a quer
         - [Queries](#queries)
 - [Creating a query bus](#creating-a-query-bus)
 - [Executing a query](#executing-a-query)
+- [Middleware](#middleware)
 
 ## Creating a query
 
-Following the example above (searching products), the snippet below shows how you would create said query and its corresponding query handler
+Following the example above (searching products), the snippet below shows how you would create said query and its corresponding query handler.
 
 ```java
 public final class SearchProductsInput implements Query {
@@ -138,8 +139,7 @@ public final class Application {
   public static void main(String[] args) {
     var factory = new InMemoryQueryHandlerFactory();
     var locator = new ReflectionsQueryHandlerLocator("queries.package");
-    var handlerMiddleware = new QueryHandlerMiddleware(locator, factory);
-    var bus = new MiddlewareQueryBus(List.of(handlerMiddleware));
+    var bus = new QueryBusDispatch(locator, factory);
   }
 }
 ```
@@ -159,6 +159,23 @@ Middleware are executed in sequence; the order is configured when you set up the
 
 Middleware can control when the next middleware starts.
 This allows you to control if your custom behavior will come **before** or **after** query execution, or if you’ll **suppress** the query from being executed at all.
+
+This package provides a middleware query bus.
+The minimum setup is shown below.
+At a minimum we need to add a `QueryHandlerMiddleware` to locate, create and execute a query handler.
+
+
+```java
+public final class Application {
+  public static void main(String[] args) {
+    var factory = new InMemoryQueryHandlerFactory();
+    var locator = new ReflectionsQueryHandlerLocator("queries.package");
+    var handlerMiddleware = new QueryHandlerMiddleware(locator, factory);
+    var bus = new MiddlewareQueryBus(List.of(handlerMiddleware));
+  }
+}
+```
+
 
 Middleware is a very useful concept for lots of things.
 You could write middleware for:
