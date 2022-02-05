@@ -1,6 +1,6 @@
-package com.montealegreluis.servicebuses.querybus.middleware.handler;
+package com.montealegreluis.servicebuses.querybus.factory;
 
-import com.montealegreluis.servicebuses.contracttests.querybus.middleware.handler.QueryHandlerFactoryTest;
+import com.montealegreluis.servicebuses.contracttests.querybus.factory.QueryHandlerFactoryTest;
 import com.montealegreluis.servicebuses.fakes.querybus.FakeQueryHandler;
 import com.montealegreluis.servicebuses.fakes.querybus.SpyQueryHandler;
 import com.montealegreluis.servicebuses.querybus.Query;

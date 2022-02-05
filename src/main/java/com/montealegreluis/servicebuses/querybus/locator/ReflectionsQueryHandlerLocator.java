@@ -1,4 +1,4 @@
-package com.montealegreluis.servicebuses.querybus.middleware.handler;
+package com.montealegreluis.servicebuses.querybus.locator;
 
 import com.montealegreluis.servicebuses.ReflectionsActionMapper;
 import com.montealegreluis.servicebuses.querybus.Query;

@@ -1,6 +1,6 @@
-package com.montealegreluis.servicebuses.querybus.middleware.handler;
+package com.montealegreluis.servicebuses.querybus.locator;
 
-import com.montealegreluis.servicebuses.contracttests.querybus.middleware.handler.QueryHandlerLocatorTest;
+import com.montealegreluis.servicebuses.contracttests.querybus.locator.QueryHandlerLocatorTest;
 import com.montealegreluis.servicebuses.fakes.querybus.FakeQuery;
 import com.montealegreluis.servicebuses.fakes.querybus.FakeQueryHandler;
 import com.montealegreluis.servicebuses.fakes.querybus.QueryWithoutHandler;

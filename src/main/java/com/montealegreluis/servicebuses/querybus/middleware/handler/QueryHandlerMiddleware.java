@@ -4,6 +4,8 @@ import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.querybus.Query;
 import com.montealegreluis.servicebuses.querybus.QueryHandler;
 import com.montealegreluis.servicebuses.querybus.Response;
+import com.montealegreluis.servicebuses.querybus.factory.QueryHandlerFactory;
+import com.montealegreluis.servicebuses.querybus.locator.QueryHandlerLocator;
 import com.montealegreluis.servicebuses.querybus.middleware.QueryMiddleware;
 
 public final class QueryHandlerMiddleware implements QueryMiddleware {

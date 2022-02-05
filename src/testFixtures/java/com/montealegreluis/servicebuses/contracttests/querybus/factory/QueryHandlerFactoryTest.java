@@ -1,4 +1,4 @@
-package com.montealegreluis.servicebuses.contracttests.querybus.middleware.handler;
+package com.montealegreluis.servicebuses.contracttests.querybus.factory;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.montealegreluis.servicebuses.querybus.Query;
 import com.montealegreluis.servicebuses.querybus.QueryHandler;
 import com.montealegreluis.servicebuses.querybus.Response;
-import com.montealegreluis.servicebuses.querybus.middleware.handler.CannotCreateQueryHandler;
-import com.montealegreluis.servicebuses.querybus.middleware.handler.QueryHandlerFactory;
+import com.montealegreluis.servicebuses.querybus.factory.CannotCreateQueryHandler;
+import com.montealegreluis.servicebuses.querybus.factory.QueryHandlerFactory;
 import org.junit.jupiter.api.Test;
 
 public abstract class QueryHandlerFactoryTest {

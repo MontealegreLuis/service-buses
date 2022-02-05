@@ -1,4 +1,4 @@
-package com.montealegreluis.servicebuses.contracttests.querybus.middleware.handler;
+package com.montealegreluis.servicebuses.contracttests.querybus.locator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import com.montealegreluis.servicebuses.querybus.Query;
 import com.montealegreluis.servicebuses.querybus.QueryHandler;
 import com.montealegreluis.servicebuses.querybus.Response;
-import com.montealegreluis.servicebuses.querybus.middleware.handler.QueryHandlerLocator;
-import com.montealegreluis.servicebuses.querybus.middleware.handler.UnknownQueryHandler;
+import com.montealegreluis.servicebuses.querybus.locator.QueryHandlerLocator;
+import com.montealegreluis.servicebuses.querybus.locator.UnknownQueryHandler;
 import org.junit.jupiter.api.Test;
 
 public abstract class QueryHandlerLocatorTest {

@@ -40,7 +40,6 @@ final class ReflectionsActionMapperTest {
     var handlersMap = mapper.map(QueryHandler.class);
 
     assertEquals(2, handlersMap.size());
-    System.out.println(handlersMap);
     assertTrue(handlersMap.containsKey(FakeQuery.class));
     assertEquals(FakeQueryHandler.class, handlersMap.get(FakeQuery.class));
     assertTrue(handlersMap.containsKey(Query.class));

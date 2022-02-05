@@ -1,24 +1,24 @@
-package com.montealegreluis.servicebuses.querybus.middleware.handler;
+package com.montealegreluis.servicebuses.querybus;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.montealegreluis.servicebuses.ActionException;
 import com.montealegreluis.servicebuses.fakes.querybus.*;
+import com.montealegreluis.servicebuses.querybus.factory.CannotCreateQueryHandler;
 import com.montealegreluis.servicebuses.querybus.factory.InMemoryQueryHandlerFactory;
 import com.montealegreluis.servicebuses.querybus.locator.ReflectionsQueryHandlerLocator;
 import com.montealegreluis.servicebuses.querybus.locator.UnknownQueryHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-final class QueryHandlerMiddlewareTest {
+final class QueryBusDispatcherTest {
   @Test
   void it_locates_and_executes_a_query_handler() throws ActionException {
     var query = new FakeQuery();
     var handler = new FakeQueryHandler();
     factory.add(handler.getClass(), handler);
-    var next = new SpyQueryHandler();
 
-    var response = middleware.execute(query, next);
+    var response = queryBus.dispatch(query);
 
     assertEquals(new FakeResponse(), response);
     assertEquals(query, handler.executedQuery(), "Query was not executed");
@@ -27,19 +27,25 @@ final class QueryHandlerMiddlewareTest {
   @Test
   void it_fails_when_no_handler_is_registered_for_a_query() {
     var query = new QueryWithoutHandler();
-    var handler = new SpyQueryHandler();
 
-    assertThrows(UnknownQueryHandler.class, () -> middleware.execute(query, handler));
+    assertThrows(UnknownQueryHandler.class, () -> queryBus.dispatch(query));
+  }
+
+  @Test
+  void it_fails_if_query_handler_cannot_be_created() {
+    var command = new FakeQuery();
+
+    assertThrows(CannotCreateQueryHandler.class, () -> queryBus.dispatch(command));
   }
 
   @BeforeEach
   void let() {
-    factory = new InMemoryQueryHandlerFactory();
     var locator =
         new ReflectionsQueryHandlerLocator("com.montealegreluis.servicebuses.fakes.querybus");
-    middleware = new QueryHandlerMiddleware(locator, factory);
+    factory = new InMemoryQueryHandlerFactory();
+    queryBus = new QueryBusDispatcher(locator, factory);
   }
 
-  private QueryHandlerMiddleware middleware;
   private InMemoryQueryHandlerFactory factory;
+  private QueryBusDispatcher queryBus;
 }
