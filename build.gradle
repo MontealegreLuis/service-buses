@@ -20,13 +20,6 @@ repositories {
             password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
         }
     }
-    maven {
-        url = uri("https://maven.pkg.github.com/montealegreluis/activity-feed")
-        credentials {
-            username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.token") ?: System.getenv("TOKEN")
-        }
-    }
 }
 
 publishing {
@@ -48,11 +41,9 @@ publishing {
 }
 
 dependencies {
-    implementation "io.vavr:vavr:0.10.4"
     implementation 'com.montealegreluis:assert:1.1.0'
     implementation 'com.google.guava:guava:31.0.1-jre'
     implementation 'org.reflections:reflections:0.10.2'
-    api 'com.montealegreluis:activity-feed:3.1.1'
 
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
@@ -62,8 +53,6 @@ dependencies {
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testImplementation testFixtures('com.montealegreluis:activity-feed:3.1.1')
-    testImplementation 'org.mockito:mockito-core:4.2.0'
-    testImplementation 'org.mockito:mockito-inline:4.2.0'
     testFixturesImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
@@ -85,6 +74,6 @@ pitest {
     outputFormats = ['HTML']
     timestampedReports = false
     junit5PluginVersion = '0.15'
-    coverageThreshold = 96
+    coverageThreshold = 98
     mutationThreshold = 98
 }
