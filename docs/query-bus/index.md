@@ -154,33 +154,13 @@ var response = bus.dispatch(query);
 ## Middleware
 
 Middleware are a way to **add behavior** to queries.
-When you execute a query, it is passed through every Middleware.
-Middleware are executed in sequence; the order is configured when you set up the `QueryBus` and can’t be changed later.
+It's a query bus plugin mechanism.
 
-Middleware can control when the next middleware starts.
-This allows you to control if your custom behavior will come **before** or **after** query execution, or if you’ll **suppress** the query from being executed at all.
+Middleware is a very useful concept for things like:
 
-This package provides a middleware query bus.
-The minimum setup is shown below.
-At a minimum we need to add a `QueryHandlerMiddleware` to locate, create and execute a query handler.
-
-
-```java
-public final class Application {
-  public static void main(String[] args) {
-    var factory = new InMemoryQueryHandlerFactory();
-    var locator = new ReflectionsQueryHandlerLocator("queries.package");
-    var handlerMiddleware = new QueryHandlerMiddleware(locator, factory);
-    var bus = new MiddlewareQueryBus(List.of(handlerMiddleware));
-  }
-}
-```
-
-
-Middleware is a very useful concept for lots of things.
-You could write middleware for:
-
-- [Logging](https://github.com/MontealegreLuis/service-buses/blob/main/docs/query-bus/logging.md)
-- [Error handling](https://github.com/MontealegreLuis/service-buses/blob/main/docs/query-bus/error-handler.md)
+- Logging
+- Error handling
 - Validation
 - Permissions
+
+Please check [this package](https://github.com/MontealegreLuis/service-buses-middleware) for logging and error handler middleware.

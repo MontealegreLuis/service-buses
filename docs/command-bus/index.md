@@ -148,33 +148,15 @@ bus.dispatch(command);
 ## Middleware
 
 Middleware are a way to **add behavior** to commands.
-When you execute a command, it is passed through every Middleware.
-Middleware are executed in sequence; the order is configured when you set up the `CommandBus` and can’t be changed later.
+It's a command bus plugin mechanism.
 
-Middleware can control when the next middleware starts.
-This allows you to control if your custom behavior will come **before** or **after** command execution, or if you’ll **suppress** the command from being executed at all.
+Middleware is a very useful concept for things like:
 
-This package provides a middleware command bus.
-The minimum setup is shown below. 
-At a minimum we need to add a `CommandHandlerMiddleware` to locate, create and execute a command handler.
-
-```java
-public final class Application {
-  public static void main(String[] args) {
-    var factory = new InMemoryCommandHandlerFactory();
-    var locator = new ReflectionsCommandHandlerLocator("commands.package");
-    var handlerMiddleware = new CommandHandlerMiddleware(locator, factory);
-    var bus = new MiddlewareCommandBus(List.of(handlerMiddleware));
-  }
-}
-```
-
-Middleware is a very useful concept for lots of things.
-You could write middleware for:
-
-- [Logging](https://github.com/MontealegreLuis/service-buses/blob/main/docs/command-bus/logging.md)
-- [Error handling](https://github.com/MontealegreLuis/service-buses/blob/main/docs/command-bus/error-handler.md)
-- [Database transactions](https://github.com/MontealegreLuis/service-buses-spring-boot#transaction-middleware)
+- Logging
+- Error handling
+- Database transactions
 - Queuing
 - Validation
 - Permissions
+
+Please check [this package](https://github.com/MontealegreLuis/service-buses-middleware) for logging and error handler middleware and this one for [database transactions](https://github.com/MontealegreLuis/service-buses-spring-boot).

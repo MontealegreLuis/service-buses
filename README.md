@@ -5,7 +5,7 @@
 [![semantic-release: conventional-commits](https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
 
-This Maven package provides buses for commands and queries as defined by CQRS (Command-Query Responsibility Segregation)
+This package provides buses for commands and queries as defined by CQRS (Command-Query Responsibility Segregation)
 
 In CQRS, services are split into two separate types, a _read-side_ (**Query**) and a _write-side_ (**Command**). 
 
