@@ -1,4 +1,4 @@
-# Contributing to Activity Feed
+# Contributing to Service Buses
 
 ## Code of Conduct
 
@@ -43,13 +43,13 @@ make format
 
 [Make](https://en.wikipedia.org/wiki/Make_(software)) will run the [Google Java Format Gradle plugin](https://github.com/sherter/google-java-format-gradle-plugin) in your `src` directory.
 
-## Using Activity Feed from a Git checkout
+## Using Service Buses from a Git checkout
 
 The following commands can be used to perform the initial checkout of Service Buses:
 
 ```bash
 git clone git://github.com/MontealegreLuis/service-buses.git
-cd activity-feed
+cd service-buses
 ```
 
 Retrieve Service Buses dependencies using [Gradle](https://docs.gradle.org/current/userguide/userguide.html):
