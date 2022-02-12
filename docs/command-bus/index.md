@@ -27,6 +27,7 @@ public final class SubscribeToNewsLetterInput implements Command {
   // Information required to subscribe: email, name, etc.
 }
 
+@Command
 public final class SubscribeToNewsLetterAction 
   implements CommandHandler<SubscribeToNewsLetterInput> {
     @Override
@@ -35,6 +36,8 @@ public final class SubscribeToNewsLetterAction
     }
 }
 ```
+
+As shown in the snippet above, this package provides a `@Command` annotation, so you can use Spring Boot [component scanning](https://www.baeldung.com/spring-componentscan-filter-type#annotation_filter) in case your commands are in a separate package.
 
 ### Locating commands
 

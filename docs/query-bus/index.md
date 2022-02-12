@@ -33,6 +33,7 @@ public final class SearchProductsResult implements Response {
   // matching products, page number, total count, etc.
 }
 
+@Query
 public final class SearchProductsAction 
   implements QueryHandler<SearchProductsInput, SearchProductsResult> {
     @Override
@@ -41,6 +42,8 @@ public final class SearchProductsAction
     }
 }
 ```
+
+As shown in the snippet above, this package provides a `@Query` annotation, so you can use Spring Boot [component scanning](https://www.baeldung.com/spring-componentscan-filter-type#annotation_filter) in case your queries are in a separate package.
 
 ### Locating queries
 
