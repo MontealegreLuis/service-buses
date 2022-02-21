@@ -26,12 +26,12 @@ public final class ReflectionsActionMapper<Action, ActionHandler> {
       ParameterizedType parameterizedType = (ParameterizedType) genericInterfaces[0];
 
       @SuppressWarnings("unchecked")
-      Action commandClass = (Action) parameterizedType.getActualTypeArguments()[0];
+      Action actionClass = (Action) parameterizedType.getActualTypeArguments()[0];
 
       @SuppressWarnings("unchecked")
-      ActionHandler commandHandler = (ActionHandler) handler;
+      ActionHandler actionHandler = (ActionHandler) handler;
 
-      handlers.put(commandClass, commandHandler);
+      handlers.put(actionClass, actionHandler);
     }
     return handlers;
   }
