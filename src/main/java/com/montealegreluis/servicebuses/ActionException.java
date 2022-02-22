@@ -4,7 +4,7 @@ import com.montealegreluis.assertions.Assert;
 import java.util.Optional;
 
 public abstract class ActionException extends Exception {
-  private Action action;
+  protected Action action;
 
   public ActionException(String message) {
     super(message);
