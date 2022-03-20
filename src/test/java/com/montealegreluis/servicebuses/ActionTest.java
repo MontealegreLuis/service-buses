@@ -24,6 +24,15 @@ final class ActionTest {
   }
 
   @Test
+  void it_can_be_created_with_a_given_name() {
+    var name = "SearchConcerts";
+
+    var action = Action.named(name);
+
+    assertEquals(name, action.name());
+  }
+
+  @Test
   void it_converts_its_name_to_a_slug() {
     var action = Action.withoutSuffix("ChangeBusinessAddressAction", "Action");
 

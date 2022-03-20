@@ -18,6 +18,11 @@ import lombok.EqualsAndHashCode;
 public final class Action {
   private final String name;
 
+  public static Action named(String name) {
+    Assert.notBlank(name, "Action name cannot be null or empty. '%s' given");
+    return new Action(name);
+  }
+
   public static Action withoutSuffix(String name, String suffix) {
     Assert.notBlank(name, "Action name cannot be null or empty. '%s' given");
     return new Action(name.replace(suffix, ""));

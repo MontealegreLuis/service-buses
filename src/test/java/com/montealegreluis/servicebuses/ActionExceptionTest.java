@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 final class ActionExceptionTest {
   @Test
   void it_includes_the_action_where_the_exception_was_thrown() {
-    var action = Action.withoutSuffix("SearchProducts", "");
+    var action = Action.named("SearchProducts");
     var cause = new RuntimeException("Cannot connect to MySQL server");
 
     var exception = new ActionException("Something went wrong", action, cause) {};
@@ -19,7 +19,7 @@ final class ActionExceptionTest {
 
   @Test
   void it_can_add_the_action_that_created_it() {
-    var action = Action.withoutSuffix("SearchProducts", "");
+    var action = Action.named("SearchProducts");
     var cause = new RuntimeException("Cannot connect to MySQL server");
 
     var exception = new ActionException("Something went wrong", cause) {};

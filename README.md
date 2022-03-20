@@ -15,6 +15,7 @@ In CQRS, services are split into two separate types, a _read-side_ (**Query**) a
 ## Usage
 
 - [Command bus](https://github.com/MontealegreLuis/service-buses/blob/main/docs/command-bus/index.md)
+  - [Domain Events](https://github.com/MontealegreLuis/service-buses/blob/main/docs/domain-events/index.md)
 - [Query bus](https://github.com/MontealegreLuis/service-buses/blob/main/docs/query-bus/index.md)
 
 ## Installation

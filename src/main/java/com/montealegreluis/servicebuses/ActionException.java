@@ -15,8 +15,8 @@ public abstract class ActionException extends Exception {
   }
 
   /**
-   * When used in combination with error handler middleware all action exceptions will the action
-   * that produce them
+   * When used in combination with error handler middleware all action exceptions will include the
+   * action that produce them
    *
    * @see <a
    *     href="https://github.com/MontealegreLuis/service-buses-middleware/blob/main/src/main/java/com/montealegreluis/servicebusesmiddleware/commandbus/middleware/error/CommandErrorHandlerMiddleware.java">Command
