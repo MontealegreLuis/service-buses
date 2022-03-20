@@ -11,11 +11,15 @@ final class EventBusTest {
   void it_dispatches_recorded_events() {
     var bus = new FakeEventBus();
     var events = new DomainEvents();
-    events.add(new FakeDomainEvent());
-    events.add(new FakeDomainEvent());
+    var eventA = new FakeDomainEvent();
+    var eventB = new FakeDomainEvent();
+    events.add(eventA);
+    events.add(eventB);
 
     bus.dispatch(events);
 
-    assertEquals(events, bus.dispatchedEvents());
+    assertEquals(2, bus.dispatchedEventsCount());
+    assertTrue(bus.containsEvent(eventA));
+    assertTrue(bus.containsEvent(eventB));
   }
 }
