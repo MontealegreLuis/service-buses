@@ -11,6 +11,10 @@ final class ActionTest {
     assertThrows(IllegalArgumentException.class, () -> Action.withoutSuffix(null, "Action"));
     assertThrows(IllegalArgumentException.class, () -> Action.withoutSuffix("", "Action"));
     assertThrows(IllegalArgumentException.class, () -> Action.withoutSuffix(" ", "Action"));
+
+    assertThrows(IllegalArgumentException.class, () -> Action.named(null));
+    assertThrows(IllegalArgumentException.class, () -> Action.named(""));
+    assertThrows(IllegalArgumentException.class, () -> Action.named(" "));
   }
 
   @Test
