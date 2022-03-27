@@ -98,4 +98,4 @@ var collectors = List.of(
 var eventsBus = new CollectorEventBus(collectors);
 ```
 
-In the example above we could use middleware to log all domain events, and to send only publishable events to a queue, so they can be delivered to other systems.
+In the example above we could use [middleware to log all domain events](https://github.com/MontealegreLuis/service-buses-middleware/blob/main/docs/command-bus/logging-events.md), and to send only publishable events to a queue, so they can be delivered to other systems.
