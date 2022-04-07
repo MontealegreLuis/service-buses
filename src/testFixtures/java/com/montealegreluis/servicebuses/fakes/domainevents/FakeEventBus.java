@@ -6,7 +6,7 @@ import com.montealegreluis.servicebuses.domainevents.EventBus;
 import java.util.ArrayList;
 
 public final class FakeEventBus implements EventBus {
-  private DomainEvents domainEvents;
+  private DomainEvents domainEvents = new DomainEvents();
 
   @Override
   public void dispatch(DomainEvents events) {
