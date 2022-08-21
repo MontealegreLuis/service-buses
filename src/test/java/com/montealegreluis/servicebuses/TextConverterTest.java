@@ -7,19 +7,13 @@ import org.junit.jupiter.api.Test;
 final class TextConverterTest {
   @Test
   void it_converts_from_camel_case_to_kebab_case() {
-    var camelCase = "UploadPngFile";
-
-    var kebabCase = TextConverter.camelCaseToKebabCase(camelCase);
-
-    assertEquals("upload-png-file", kebabCase);
+    assertEquals("upload-png-file", TextConverter.camelCaseToKebabCase("UploadPngFile"));
+    assertEquals("custom-xml-parser", TextConverter.camelCaseToKebabCase("CustomXMLParser"));
   }
 
   @Test
   void it_converts_camel_case_to_sentence() {
-    var camelCase = "UpdateAvatarImage";
-
-    var sentence = TextConverter.camelCaseToSentence(camelCase);
-
-    assertEquals("Update avatar image", sentence);
+    assertEquals("Update avatar image", TextConverter.camelCaseToSentence("UpdateAvatarImage"));
+    assertEquals("Convert to xml", TextConverter.camelCaseToSentence("ConvertToXML"));
   }
 }
